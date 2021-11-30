@@ -9,7 +9,9 @@ import { CheckBoxComponent } from './components/check-box/check-box.component';
 import { SubTitleComponent } from './components/sub-title/sub-title.component';
 import { HeaderComponent } from './components/header/header.component';
 import { HomeComponent } from './screens/home/home.component';
+import { TaskContainerComponent } from './components/task-container/task-container.component';
 
+import { HttpClientModule } from '@angular/common/http';
 @NgModule({
   declarations: [
     AppComponent,
@@ -18,13 +20,11 @@ import { HomeComponent } from './screens/home/home.component';
     CheckBoxComponent,
     SubTitleComponent,
     HeaderComponent,
-    HomeComponent
+    HomeComponent,
+    TaskContainerComponent,
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
+  imports: [BrowserModule, AppRoutingModule, HttpClientModule],
+  providers: [HttpClientModule],
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

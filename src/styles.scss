@@ -1,1 +1,16 @@
 /* You can add global styles to this file, and also import other style files */
+* body {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 16px;
+}
+
+$grey-dark: #626567;
+$grey-900: #909497;
+$grey-700: #bdc3c7;
+$grey-600: #d0d3d4;
+$grey-500: #ecf0f1;
+$grey-300: #f4f6f7;
+$white: #fff;
+$black: #000000;
+$common-border: 1px solid $grey-900;
+$border-radius: 3px;
