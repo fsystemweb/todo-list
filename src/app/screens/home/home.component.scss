@@ -1,0 +1,30 @@
+@import "../../../styles.scss";
+.header-container {
+  margin-left: 25%;
+  padding-bottom: 2rem;
+  padding-top: 2rem;
+
+  .button-new {
+    margin-left: 60%;
+  }
+}
+.home {
+  margin: auto;
+  width: 50%;
+  border: $common-border;
+  padding: 1rem;
+  border-radius: $border-radius;
+}
+
+ul.no-bullets {
+  list-style-type: none; /* Remove bullets */
+  padding: 0; /* Remove padding */
+  margin: 0; /* Remove margins */
+}
+
+.button-delete {
+  text-align: center;
+  margin: auto;
+  width: 50%;
+  padding: 1rem;
+}

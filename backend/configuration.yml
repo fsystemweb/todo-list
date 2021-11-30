@@ -1,0 +1,17 @@
+---
+
+logging:
+  level: INFO
+  loggers:
+    com.fsystem.apiresttask: DEBUG
+mongoDB: myFirstDatabase
+mongoHost: cluster0.0zw7s.mongodb.net
+mongoPort: 27017
+mongoUser: facucappella
+mongoPassword: pfw]h<p3Np?p"DcF
+collectionName: tasks
+server:
+  applicationConnectors:
+    -
+      port: 8080
+      type: http

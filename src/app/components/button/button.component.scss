@@ -1,0 +1,22 @@
+@import "../../../styles.scss";
+
+.myButton {
+  background-color: $white;
+  color: $grey-900;
+  cursor: pointer;
+  display: inline-block;
+  padding: 1rem;
+  text-decoration: none;
+  border: $common-border;
+  border-radius: $border-radius;
+}
+
+.myButton:hover {
+  background-color: $grey-500;
+  color: $grey-900;
+}
+
+.myButton:active {
+  position: relative;
+  top: 1px;
+}
