@@ -1,0 +1,29 @@
+@import "../../../styles.scss";
+
+.task-container {
+  display: inline-block;
+
+  border: $common-border;
+  border-radius: $border-radius;
+  width: 100%;
+  .column-left {
+    padding: 1rem;
+    width: 50%;
+    float: left;
+    display: inline;
+  }
+  .column-right {
+    display: inline;
+    padding: 1rem;
+    position: relative;
+    float: right;
+    width: 20%;
+    text-align: right;
+    height: 100%;
+    top: 0.5rem;
+  }
+}
+
+.task-container:hover {
+  background-color: $grey-500;
+}

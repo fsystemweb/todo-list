@@ -1,0 +1,20 @@
+<div class="task-container" (dblclick)="eventUpdate(task)">
+  <div class="column-left">
+    <app-title [title]="task.title" *ngIf="!flagUpdate"></app-title>
+    <input
+      autofocus
+      type="text"
+      [value]="task.title"
+      [(ngModel)]="newTitle"
+      *ngIf="flagUpdate"
+    />
+
+    <app-sub-title [subTitle]="task.date"></app-sub-title>
+  </div>
+  <div class="column-right">
+    <app-check-box
+      [id]="task._id"
+      (emitCheckBoxActive)="checkTask($event)"
+    ></app-check-box>
+  </div>
+</div>

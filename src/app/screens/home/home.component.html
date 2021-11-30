@@ -1,1 +1,17 @@
-<p>home works!</p>
+<div class="header-container">
+  <app-header header="Tasker"></app-header>
+  <div class="button-new">
+    <app-button title="New" (click)="new()"></app-button>
+  </div>
+</div>
+
+<div class="home">
+  <ul class="no-bullets">
+    <li *ngFor="let task of tasks">
+      <app-task-container [task]="task"></app-task-container>
+    </li>
+  </ul>
+</div>
+<div class="button-delete">
+  <app-button title="Delete" (click)="delete()"></app-button>
+</div>

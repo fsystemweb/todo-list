@@ -1,15 +1,13 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-sub-title',
   templateUrl: './sub-title.component.html',
-  styleUrls: ['./sub-title.component.scss']
+  styleUrls: ['./sub-title.component.scss'],
 })
 export class SubTitleComponent implements OnInit {
+  @Input() subTitle = '';
+  constructor() {}
 
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
+  ngOnInit(): void {}
 }
