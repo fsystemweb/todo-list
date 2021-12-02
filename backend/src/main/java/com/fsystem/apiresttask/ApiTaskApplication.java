@@ -48,9 +48,7 @@ public class ApiTaskApplication extends Application<ApiTaskApplicationConfigurat
 
     @Override
     public void run(ApiTaskApplicationConfiguration config, Environment env) {
-        MongoClient mongoClient = new MongoClient(new MongoClientURI("mongodb+srv://"+config.getMongoUser()+
-                ":"+config.getMongoPassword()+"@"+config.getMongoHost()+"/"+config.getMongoDB()
-                +"?retryWrites=true&w=majority"));
+      MongoClient mongoClient = new MongoClient( config.getMongoDB() , 27017 );
         MongoManaged mongoManaged = new MongoManaged(mongoClient);
         env.lifecycle().manage(mongoManaged);
         MongoDatabase db = mongoClient.getDatabase(config.getMongoDB());
