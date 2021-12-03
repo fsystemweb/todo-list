@@ -4,8 +4,8 @@ logging:
   level: INFO
   loggers:
     com.fsystem.apiresttask: DEBUG
-mongoDB: test
-mongoHost: mongo_host
+mongoDB: db
+mongoHost: mongo-db
 mongoPort: 27017
 mongoUser:
 mongoPassword:
