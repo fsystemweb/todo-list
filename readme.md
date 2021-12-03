@@ -22,7 +22,7 @@
 
 ## Backend
 
-- Check postman collection in to understand api behaviour:
+- Check postman collection to understand the api behaviour:
   `api-rest-task.postman_collection.json`
 
 # Clean docker workspace
