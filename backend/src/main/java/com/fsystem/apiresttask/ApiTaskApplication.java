@@ -21,44 +21,44 @@ import javax.servlet.FilterRegistration;
 import java.util.EnumSet;
 
 public class ApiTaskApplication extends Application<ApiTaskApplicationConfiguration> {
-    private static final Logger logger = LoggerFactory.getLogger(ApiTaskApplicationConfiguration.class);
+  private static final Logger logger = LoggerFactory.getLogger(ApiTaskApplicationConfiguration.class);
 
-    public static void main(String[] args) throws Exception {
-        new ApiTaskApplication().run(args);
-    }
+  public static void main(String[] args) throws Exception {
+    new ApiTaskApplication().run(args);
+  }
 
-    @Override
-    public String getName() {
-        return "Api Rest Task";
-    }
+  @Override
+  public String getName() {
+    return "Api Rest Task";
+  }
 
-    private void addCors(Environment env){
-        // Enable CORS headers
-        final FilterRegistration.Dynamic cors =
-                env.servlets().addFilter("CORS", CrossOriginFilter.class);
+  private void addCors(Environment env) {
+    // Enable CORS headers
+    final FilterRegistration.Dynamic cors =
+      env.servlets().addFilter("CORS", CrossOriginFilter.class);
 
-        // Configure CORS parameters
-        cors.setInitParameter("allowedOrigins", "*");
-        cors.setInitParameter("allowedHeaders", "X-Requested-With,Content-Type,Accept,Origin");
-        cors.setInitParameter("allowedMethods", "OPTIONS,GET,PUT,POST,DELETE,HEAD");
+    // Configure CORS parameters
+    cors.setInitParameter("allowedOrigins", "*");
+    cors.setInitParameter("allowedHeaders", "X-Requested-With,Content-Type,Accept,Origin");
+    cors.setInitParameter("allowedMethods", "OPTIONS,GET,PUT,POST,DELETE,HEAD");
 
-        // Add URL mapping
-        cors.addMappingForUrlPatterns(EnumSet.allOf(DispatcherType.class), true, "/*");
-    }
+    // Add URL mapping
+    cors.addMappingForUrlPatterns(EnumSet.allOf(DispatcherType.class), true, "/*");
+  }
 
-    @Override
-    public void run(ApiTaskApplicationConfiguration config, Environment env) {
-      MongoClient mongoClient = new MongoClient( config.getMongoDB() , 27017 );
-        MongoManaged mongoManaged = new MongoManaged(mongoClient);
-        env.lifecycle().manage(mongoManaged);
-        MongoDatabase db = mongoClient.getDatabase(config.getMongoDB());
-        MongoCollection<Document> collection = db.getCollection(config.getCollectionName());
-        logger.info("Registering RESTful API resources");
-        env.jersey().register(new ApiTaskResource(collection, new MongoServiceImpl(new Gson())));
-        env.healthChecks().register("MongoDBHealthCheck",
-                new MongoDBHealthCheck(mongoClient));
+  @Override
+  public void run(ApiTaskApplicationConfiguration config, Environment env) {
+    MongoClient mongoClient = new MongoClient(config.getMongoHost(), config.getMongoPort());
+    MongoManaged mongoManaged = new MongoManaged(mongoClient);
+    env.lifecycle().manage(mongoManaged);
+    MongoDatabase db = mongoClient.getDatabase(config.getMongoDB());
+    MongoCollection<Document> collection = db.getCollection(config.getCollectionName());
+    logger.info("Registering RESTful API resources");
+    env.jersey().register(new ApiTaskResource(collection, new MongoServiceImpl(new Gson())));
+    env.healthChecks().register("MongoDBHealthCheck",
+      new MongoDBHealthCheck(mongoClient));
 
-        this.addCors(env);
+    this.addCors(env);
 
-    }
+  }
 }
