@@ -1,4 +1,4 @@
-# Task managemer
+# Task management
 
 - Start application
   `docker-compose up`
