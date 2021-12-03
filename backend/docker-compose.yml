@@ -1,0 +1,22 @@
+version: '3'
+services:
+  #************Backend***************
+  backend_dropwizard:
+    container_name: dropwizard_container
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - 8080:8080
+    depends_on:
+      - mongo-db
+    links:
+      - mongo-db
+  #************Mongo DB***************      
+  mongo-db:
+    image: mongo
+    ports:
+      - "27017:27017"
+    container_name: mongo-db
+    volumes:
+      - ./db/:/data/db

@@ -23,7 +23,6 @@ public class ApiTaskApplicationConfiguration extends Configuration {
     public int mongoPort;
 
     @JsonProperty
-    @NotEmpty
     public String mongoDB;
 
     @JsonProperty
