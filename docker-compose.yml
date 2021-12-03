@@ -1,0 +1,34 @@
+version: '3'
+services:
+  #************Backend***************
+  backend_dropwizard:
+    container_name: dropwizard_container
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    ports:
+      - 8080:8080
+    depends_on:
+      - mongo-db
+    links:
+      - mongo-db
+  #************Mongo DB***************      
+  mongo-db:
+    image: mongo
+    ports:
+      - "27017:27017"
+    container_name: mongo-db
+    volumes:
+      - ./db/:/data/db
+
+  #************Frontend***************
+  frontend_angular:
+    container_name: angular_container
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    ports:
+      - 4200:4200
+    links:
+      - backend_dropwizard
+      

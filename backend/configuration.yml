@@ -4,11 +4,11 @@ logging:
   level: INFO
   loggers:
     com.fsystem.apiresttask: DEBUG
-mongoDB: myFirstDatabase
-mongoHost: cluster0.0zw7s.mongodb.net
+mongoDB: db
+mongoHost: mongo-db
 mongoPort: 27017
-mongoUser: facucappella
-mongoPassword: pfw]h<p3Np?p"DcF
+mongoUser:
+mongoPassword:
 collectionName: tasks
 server:
   applicationConnectors:
