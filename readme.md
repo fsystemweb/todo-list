@@ -18,7 +18,7 @@
 - Update task -> double click over the task and type the new title of the task, after that double click again to finish the update mode.
 - Delete task -> select the task/s that you want to remove by clicking on the checkbox after that click on the button "Delete".
 
-![Screenshot](demo.webm)
+![Screenshot](demo.gif)
 
 ## Backend
 
