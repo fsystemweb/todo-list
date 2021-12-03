@@ -8,7 +8,10 @@
 <div class="home">
   <ul class="no-bullets">
     <li *ngFor="let task of tasks">
-      <app-task-container [task]="task"></app-task-container>
+      <app-task-container
+        [task]="task"
+        (eventUpdateTask)="updateTask(task)"
+      ></app-task-container>
     </li>
   </ul>
 </div>

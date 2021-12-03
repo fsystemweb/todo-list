@@ -1,4 +1,12 @@
-import { Component, OnInit, Input } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  Input,
+  ViewChild,
+  ElementRef,
+  Output,
+  EventEmitter,
+} from '@angular/core';
 import { Task } from 'src/app/models';
 
 @Component({
@@ -9,7 +17,8 @@ import { Task } from 'src/app/models';
 export class TaskContainerComponent implements OnInit {
   @Input() task: Task;
   public flagUpdate = false;
-  public newTitle: string;
+  @ViewChild('newTitle') newTitle: ElementRef;
+  @Output() eventUpdateTask = new EventEmitter();
 
   constructor() {}
 
@@ -20,13 +29,12 @@ export class TaskContainerComponent implements OnInit {
   }
 
   eventUpdate(task) {
-    console.log(this.newTitle);
     if (!this.flagUpdate) {
-      this.newTitle = task.title;
       this.flagUpdate = true;
     } else {
-      this.task.title = this.newTitle;
+      this.task.title = this.newTitle.nativeElement.value;
       this.flagUpdate = false;
+      this.eventUpdateTask.emit(this.task);
     }
   }
 }
