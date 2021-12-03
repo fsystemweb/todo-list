@@ -8,10 +8,6 @@
 
 - Visit -> http://localhost:4200
 
-# Diagram architecture
-
-![Screenshot](diagram.png)
-
 ## How to use
 
 - Create a new task -> click on the button "New"
@@ -19,6 +15,10 @@
 - Delete task -> select the task/s that you want to remove by clicking on the checkbox after that click on the button "Delete".
 
 ![Screenshot](demo.gif)
+
+# Diagram architecture
+
+![Screenshot](diagram.png)
 
 ## Backend
 
