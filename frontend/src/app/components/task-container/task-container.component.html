@@ -4,9 +4,9 @@
     <input
       autofocus
       type="text"
-      [value]="task.title"
-      [(ngModel)]="newTitle"
+      #newTitle
       *ngIf="flagUpdate"
+      [value]="task.title"
     />
 
     <app-sub-title [subTitle]="task.date"></app-sub-title>
